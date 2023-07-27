@@ -2,4 +2,3 @@ Flask
 africastalking
 requests
 gunicorn
-waitress //for windows testing waitress-serve --listen=host:port module:app
