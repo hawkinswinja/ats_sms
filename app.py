@@ -20,7 +20,13 @@ def main():
     content: list = request.get_json()
     message: str = content.get('message')
     recipients = content.get('recipients')
-    if recipients:
-        return SMS().send(recipients, message)
-        # testing return ', '.join(recipients) + '\n' + message
-    return message, 404
+    count = 0
+    try:
+        response = SMS().send(recipients, message)['SMSMessageData']
+        for user in response['Recipients']:
+            if user['status'] == 'Success':
+                count += 1
+    except Exception:
+        pass
+    return {'count': count}
+    # testing return ', '.join(recipients) + '\n' + message
