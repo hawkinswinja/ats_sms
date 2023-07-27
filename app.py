@@ -20,6 +20,7 @@ def main():
     content: list = request.get_json()
     message: str = content.get('message')
     recipients = content.get('recipients')
+    print(recipients, message)
     count = 0
     try:
         response = SMS().send(recipients, message)['SMSMessageData']
