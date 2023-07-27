@@ -17,9 +17,10 @@ def hello():
 @app.route('/sms', methods=['POST'])
 def main():
     """Main entry point for sms service"""
-    content = request.get_json()
-    message = content.get('message')
+    content: list = request.get_json()
+    message: str = content.get('message')
     recipients = content.get('recipients')
     if recipients:
         return SMS().send(recipients, message)
+        # testing return ', '.join(recipients) + '\n' + message
     return message, 404

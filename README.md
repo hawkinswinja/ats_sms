@@ -12,3 +12,6 @@
 2. Install the dependencies using pip
 3. Set the environment variables 'user' and 'AK' with your credentials
 4. Run the app.py  file to expose the sms endpoint
+
+live API
+https://ats-sms-api.onrender.com/sms
